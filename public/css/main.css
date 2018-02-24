@@ -6,14 +6,26 @@ body {
   text-align: center;
 }
 
+main {
+  margin-top: 75px;
+}
 /* header */
 header {
   position: fixed;
   width: 100%;
+  z-index: 99999;
+}
+
+span img {
+  padding: 1px 14px;
+}
+
+span.user {
+  border-right: 2px solid white;
 }
 
 .bg-inverse {
-  background-color: #01030369!important;
+  background-color: #2b2c2c!important;
 }
 
 .nav {
@@ -21,7 +33,7 @@ header {
 }
 
 .logo {
-  width: 65px;
+  width: 75px;
 }
 
 .rigth {
@@ -41,7 +53,7 @@ header {
 }
 
 ul.nav.nav-tabs {
-  background-color: rgba(64, 144, 150, 0.651);
+  background-color: rgb(82, 185, 192);
   color:rgb(63, 62, 62);
 }
 

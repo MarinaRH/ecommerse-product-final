@@ -1,16 +1,5 @@
-// MELI.init({client_id: 5649946708065972});
-// // Así de fácil. Luego, la siguiente línea de código mostrará el primer nombre que registraste en MercadoLibre:
-// MELI.login(function() {
-//   MELI.get(
-// 	"/users/me",{},
-//   	function(data) { alert("Hello "+data[2].first_name) }
-//   );
-// });
 
-// curl -X POST -H "Content-Type: application/json" -d
-// '{
 // "site_id":"5649946708065972"
-// }'
 
 // https://api.mercadolibre.com/users/test_user?access_token=...
 
