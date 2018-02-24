@@ -1,0 +1,57 @@
+body {
+  color: black;
+}
+
+/* header */
+header {
+  position: fixed;
+  width: 100%;
+}
+
+.bg-inverse {
+  background-color: #01030369!important;
+}
+
+.nav {
+  margin-top: 31px;
+}
+
+.logo {
+  width: 65px;
+}
+
+.rigth {
+  float: right;
+}
+/* navbar */
+
+.nav-tabs .nav-link.active {
+  color: #050505;
+  border-right: 1px solid rgb(105, 128, 158);
+  border-color: none;
+  background-color: azure;
+}
+
+.nav-tabs .nav-link {
+  border-right: 1px solid rgb(117, 130, 155);
+}
+
+ul.nav.nav-tabs {
+  background-color: rgba(64, 144, 150, 0.651);
+  color:rgb(63, 62, 62);
+}
+
+.nav-item a {
+  color: white;
+}
+
+/* carrusel */
+.carousel {
+  height: 350px;
+  margin-top: 75px;
+}
+
+.carousel-item>img {
+  width: 100%;
+  height: 350px;
+}
