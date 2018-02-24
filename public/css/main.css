@@ -2,6 +2,10 @@ body {
   color: black;
 }
 
+.center {
+  text-align: center;
+}
+
 /* header */
 header {
   position: fixed;
@@ -54,4 +58,26 @@ ul.nav.nav-tabs {
 .carousel-item>img {
   width: 100%;
   height: 350px;
+}
+
+/* cards */
+
+.cards {
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 10px;
+  margin-left: -7px;
+}
+
+.cards img {
+  width: 80%;
+}
+
+span.parrafo {
+  position:absolute;
+}
+
+div.div-card:hover span.parrafo {
+  margin-top: 13%;
+  /* margin-bottom: 5%; */
+  transition: 1s;
 }
