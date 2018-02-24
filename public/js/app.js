@@ -25,26 +25,27 @@ var container = document.getElementById('moda');
 getFetch();
 
 function getFetch() {
-
-      const url = `https://api.mercadolibre.com/sites/MLA/search?condition=new&q=muebles`;
+    for (let i = 1;i < 100; i++) {
+      const url = `https://api.mercadolibre.com/sites/MPE/search?condition=new&q=billeteras`;
   
   
       fetch(url)
         .then((resp) => resp.json())
         .then(function(data) {
           
-          console.log(data.results);
-        //   const characters = `<div class="card" >
-        //   <img id="imgg" class="card-img-top img-characters" data-toggle="modal" data-target="#MyModal" src="" alt="${data.name}">
-        //   <div class="card-body">
-        //     <h5 class="card-title weight text-center">${data.name}</h5>
-        //   </div>
-        // </div>`;
+          console.log(data.results[i]);
+          const characters = `<div class="card" >
+          <img id="imgg" class="card-img-top img-characters" data-toggle="modal" data-target="#MyModal" src="" alt="${data.name}">
+          <div class="card-body">
+            <h5 class="card-title weight text-center">${data.results[i].title}</h5>
+          </div>
+        </div>`;
          
-        //   container.innerHTML += characters;
+          container.innerHTML += characters;
         })
         .catch(function(error) {
           console.log(JSON.stringify(`Error ${error}`));
         });
+    }
     
   }
