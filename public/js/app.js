@@ -35,9 +35,10 @@ function getFetch() {
           
           console.log(data.results[i]);
           const characters = `<div class="card" >
-          <img id="imgg" class="card-img-top img-characters" data-toggle="modal" data-target="#MyModal" src="" alt="${data.name}">
+          <img id="imgg" class="card-img-top img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
           <div class="card-body">
             <h5 class="card-title weight text-center">${data.results[i].title}</h5>
+            <p>S/.${data.results[i].price}</p>
           </div>
         </div>`;
          
