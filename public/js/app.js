@@ -20,13 +20,36 @@
 // Endif
 
 $('.carousel').carousel()
-var container = document.getElementById('moda');
+var boxTecnologia = document.getElementById('tecnologi');
+var boxMaquillaje = document.getElementById('maquillaj');
+let parameter;
+
+// boxTecnologia.addEventListener('click',function(){
+//     let parameter = 'tecnologia';
+//     var container = document.getElementById('tecnologia');
+// })
+
+// boxMaquillaje.addEventListener('click',function(){
+//     let parameter = 'maquillaje';
+//     var container = document.getElementById('maquillaje');
+// })
 
 getFetch();
 
 function getFetch() {
     for (let i = 1;i < 100; i++) {
-      const url = `https://api.mercadolibre.com/sites/MPE/search?condition=new&q=billeteras`;
+        
+        boxTecnologia.addEventListener('click',function(){
+            let parameter = 'tecnologia';
+            var container = document.getElementById('tecnologia');
+        })
+        
+        boxMaquillaje.addEventListener('click',function(){
+            let parameter = 'maquillaje';
+            var container = document.getElementById('maquillaje');
+        })
+          
+      const url = `https://api.mercadolibre.com/sites/MPE/search?condition=new&q=${parameter}`;
   
   
       fetch(url)
