@@ -105,9 +105,9 @@ div.div-card:hover span.parrafo {
 
 
 /* data */
-/* .img-characters {
-  width: 20%;
-} */
+.img-characters {
+  width: 60%;
+}
  
 @media (max-width:720px) { 
   .ul-nav {
