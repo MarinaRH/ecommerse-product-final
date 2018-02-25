@@ -6,6 +6,10 @@ body {
   text-align: center;
 }
 
+.hiden {
+  display: none;
+}
+
 main {
   margin-top: 75px;
 }
@@ -17,7 +21,7 @@ header {
 }
 
 span img {
-  padding: 1px 14px;
+  padding: 0px 10px;
 }
 
 span.user {
@@ -26,6 +30,7 @@ span.user {
 
 .bg-inverse {
   background-color: #2b2c2c!important;
+  padding: 6px 40px;
 }
 
 .nav {
@@ -33,7 +38,7 @@ span.user {
 }
 
 .logo {
-  width: 75px;
+  width: 70px;
 }
 
 .rigth {
@@ -60,6 +65,10 @@ ul.nav.nav-tabs {
 .nav-item a {
   color: white;
 }
+
+/* .form-inline .form-control{
+  width: 50%;
+} */
 
 /* carrusel */
 .carousel {
@@ -92,4 +101,26 @@ div.div-card:hover span.parrafo {
   margin-top: 13%;
   /* margin-bottom: 5%; */
   transition: 1s;
+}
+
+@media (max-width:720px) { 
+  .ul-nav {
+    display: block;
+  }
+
+  .header-tab>li {
+    display: none;
+  }
+
+  span.hiden {
+    display: block;
+  }
+
+  .form-inline .form-control {
+    width: 260px;
+  }
+
+  .icon-header {
+    display: none;
+  }
 }
