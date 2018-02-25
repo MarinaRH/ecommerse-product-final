@@ -2,15 +2,15 @@ $('.carousel').carousel();
 // $('#myModal').modal(options);
 
 var boxTecnologia = document.getElementById('box-tecnologia'),
-boxMaquillaje = document.getElementById('box-maquillaje'),
-boxModa = document.getElementById('box-moda'),
-boxJoyas = document.getElementById('box-joyas'),
-boxBebes = document.getElementById('box-bebes'),
-boxVehiculo = document.getElementById('box-vehiculos'),
-boxHogar = document.getElementById('box-hogar'),
-boxDeporte = document.getElementById('box-deportes'),
-boxSalud = document.getElementById('box-salud'),
-inputSearch = document.getElementById('search');
+  boxMaquillaje = document.getElementById('box-maquillaje'),
+  boxModa = document.getElementById('box-moda'),
+  boxJoyas = document.getElementById('box-joyas'),
+  boxBebes = document.getElementById('box-bebes'),
+  boxVehiculo = document.getElementById('box-vehiculos'),
+  boxHogar = document.getElementById('box-hogar'),
+  boxDeporte = document.getElementById('box-deportes'),
+  boxSalud = document.getElementById('box-salud'),
+  inputSearch = document.getElementById('search');
 // main = document.getElementById('main');
 let parameter;
 
@@ -19,18 +19,18 @@ getFetch();
 function getFetch() {
   for (let i = 1; i < 60; i++) {
 
-    inputSearch.addEventListener('keydown',function(){
+    inputSearch.addEventListener('keydown', function () {
       let search = inputSearch.value;
       var container = document.getElementById('section');
-      container.innerHTML='';
+      container.innerHTML = '';
       const url = `https://api.mercadolibre.com/sites/MPE/search?condition=new&q=${search}`;
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
           console.log(data.results[i]);
           // if(search != ''){
-          const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -44,16 +44,16 @@ function getFetch() {
           </div><hr>`;
           container.innerHTML += characters;
         })
-      
+
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
         });
     })
 
-    document.getElementById('hom').addEventListener('click', function (){
+    document.getElementById('hom').addEventListener('click', function () {
       window.location.reload(true);
     })
-  
+
     boxTecnologia.addEventListener('click', function () {
       parameter = 'tecnologia';
       var container = document.getElementById('tecnologia');
@@ -61,8 +61,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-          const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -71,22 +71,23 @@ function getFetch() {
               <h5 id="price">S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
-        container.innerHTML += characters;
+          container.innerHTML += characters;
 
-        $('.row').on('click','#buy',function (e){
-          event.preventDefault();
-          console.log('feed');
-          $('.modal-body').append('<p>'+$('#title').html()+'</p><p>'+$('#price').html()+'</p>');
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
         })
-      })
 
-      .catch(function (error) {
-        console.log(JSON.stringify(`Error ${error}`));
-      });
-      
+        .catch(function (error) {
+          console.log(JSON.stringify(`Error ${error}`));
+        });
+
     })
 
     boxMaquillaje.addEventListener('click', function () {
@@ -96,8 +97,9 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-        const characters = 
-          `<div class="row">
+          console.log(data.results);
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -106,15 +108,17 @@ function getFetch() {
               <h5 id="price">S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
 
-          $('.row').on('click','#buy',function (e){
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
             event.preventDefault();
             console.log('feed');
-            $('.modal-body').append('<p>'+$('#title').html()+'</p><p>'+$('#price').html()+'</p>');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
           })
         })
         .catch(function (error) {
@@ -129,8 +133,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-        const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -139,10 +143,18 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
+
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
@@ -156,7 +168,7 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-          const characters = 
+          const characters =
             `<div class="row">
               <div class="col-4 col-md-3 col offset-md-2">
               <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
@@ -166,10 +178,18 @@ function getFetch() {
                 <h5>S/.${data.results[i].price}</h5>
                 <span><i class="fa fa-truck"></i> Envio a todo el País<span>
                 <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-                <button type="button" class="btn btn-warning">Comprar</button>
+                <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
               </div>
             </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
+
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
@@ -183,8 +203,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-          const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -193,10 +213,18 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
+
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
@@ -210,8 +238,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-          const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -220,10 +248,18 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
+
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
@@ -237,8 +273,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-          const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -247,10 +283,18 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
+
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
@@ -264,8 +308,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-          const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -274,10 +318,18 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
+
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
@@ -291,8 +343,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-          const characters = 
-          `<div class="row">
+          const characters =
+            `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
@@ -301,20 +353,28 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click', '#buy', function () {
+            let el = $(this);
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>' + el.data('title') + '</p><p>' + el.data('price') + '</p>');
+          })
+
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
         });
     })
 
-    
-  
-  
+
+
+
   }
-  
+
 
 }
