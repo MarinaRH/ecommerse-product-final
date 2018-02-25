@@ -1,4 +1,5 @@
-$('.carousel').carousel()
+$('.carousel').carousel();
+// $('#myModal').modal(options);
 
 var boxTecnologia = document.getElementById('box-tecnologia'),
 boxMaquillaje = document.getElementById('box-maquillaje'),
@@ -10,6 +11,7 @@ boxHogar = document.getElementById('box-hogar'),
 boxDeporte = document.getElementById('box-deportes'),
 boxSalud = document.getElementById('box-salud'),
 inputSearch = document.getElementById('search');
+// main = document.getElementById('main');
 let parameter;
 
 getFetch();
@@ -25,8 +27,8 @@ function getFetch() {
       fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-
           console.log(data.results[i]);
+          // if(search != ''){
           const characters = 
           `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
@@ -40,13 +42,16 @@ function getFetch() {
               <button type="button" class="btn btn-warning">Comprar</button>
             </div>
           </div><hr>`;
-
           container.innerHTML += characters;
         })
+      
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
         });
-  
+    })
+
+    document.getElementById('hom').addEventListener('click', function (){
+      window.location.reload(true);
     })
   
     boxTecnologia.addEventListener('click', function () {
@@ -59,21 +64,29 @@ function getFetch() {
           const characters = 
           `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
-            <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
+            <img id="imgg" class="img-characters" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
             <div class="col-8 col-md-6">
-              <h6>${data.results[i].title}</h6>
-              <h5>S/.${data.results[i].price}</h5>
+              <h6 id="title">${data.results[i].title}</h6>
+              <h5 id="price">S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
+
+        $('.row').on('click','#buy',function (e){
+          event.preventDefault();
+          console.log('feed');
+          $('.modal-body').append('<p>'+$('#title').html()+'</p><p>'+$('#price').html()+'</p>');
+        })
       })
+
       .catch(function (error) {
         console.log(JSON.stringify(`Error ${error}`));
       });
+      
     })
 
     boxMaquillaje.addEventListener('click', function () {
@@ -89,14 +102,20 @@ function getFetch() {
             <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
             <div class="col-8 col-md-6">
-              <h6>${data.results[i].title}</h6>
-              <h5>S/.${data.results[i].price}</h5>
+              <h6 id="title">${data.results[i].title}</h6>
+              <h5 id="price">S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
+
+          $('.row').on('click','#buy',function (e){
+            event.preventDefault();
+            console.log('feed');
+            $('.modal-body').append('<p>'+$('#title').html()+'</p><p>'+$('#price').html()+'</p>');
+          })
         })
         .catch(function (error) {
           console.log(JSON.stringify(`Error ${error}`));
@@ -292,6 +311,10 @@ function getFetch() {
         });
     })
 
+    
+  
+  
   }
+  
 
 }

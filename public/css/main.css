@@ -20,6 +20,11 @@ header {
   z-index: 99999;
 }
 
+button.mod {
+  border: none;
+  background-color: transparent;
+}
+
 span img {
   padding: 0px 10px;
 }
@@ -108,6 +113,13 @@ div.div-card:hover span.parrafo {
 .img-characters {
   width: 60%;
 }
+
+/* modal */
+.modal-content {
+  margin-top: 19%;
+  margin-left: 87%;
+  margin-right: -87%;
+}
  
 @media (max-width:720px) { 
   .ul-nav {
@@ -123,10 +135,19 @@ div.div-card:hover span.parrafo {
   }
 
   .form-inline .form-control {
-    width: 260px;
+    width: 250px;
   }
 
   .icon-header {
     display: none;
+  }
+
+  .red {
+    background-color: red;
+  }
+
+  .modal-content {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
