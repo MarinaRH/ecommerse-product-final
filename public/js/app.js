@@ -143,7 +143,7 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
@@ -178,8 +178,8 @@ function getFetch() {
                 <h5>S/.${data.results[i].price}</h5>
                 <span><i class="fa fa-truck"></i> Envio a todo el País<span>
                 <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-                <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
-              </div>
+                <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+                </div>
             </div><hr>`;
           container.innerHTML += characters;
 
@@ -213,7 +213,7 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
@@ -248,7 +248,7 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
@@ -283,7 +283,7 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
@@ -318,7 +318,7 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
@@ -353,7 +353,7 @@ function getFetch() {
               <h5>S/.${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;

@@ -13,7 +13,9 @@ body {
 main {
   margin-top: 75px;
 }
+
 /* header */
+
 header {
   position: fixed;
   width: 100%;
@@ -34,7 +36,7 @@ span.user {
 }
 
 .bg-inverse {
-  background-color: #2b2c2c!important;
+  background-color: #2b2c2c !important;
   padding: 6px 40px;
 }
 
@@ -49,6 +51,7 @@ span.user {
 .rigth {
   float: right;
 }
+
 /* navbar */
 
 .nav-tabs .nav-link.active {
@@ -64,7 +67,7 @@ span.user {
 
 ul.nav.nav-tabs {
   background-color: rgb(82, 185, 192);
-  color:rgb(63, 62, 62);
+  color: rgb(63, 62, 62);
 }
 
 .nav-item a {
@@ -76,6 +79,7 @@ ul.nav.nav-tabs {
 } */
 
 /* carrusel */
+
 .carousel {
   height: 350px;
   margin-top: 75px;
@@ -99,7 +103,7 @@ ul.nav.nav-tabs {
 }
 
 span.parrafo {
-  position:absolute;
+  position: absolute;
 }
 
 div.div-card:hover span.parrafo {
@@ -108,44 +112,39 @@ div.div-card:hover span.parrafo {
   transition: 1s;
 }
 
-
 /* data */
+
 .img-characters {
   width: 60%;
 }
 
 /* modal */
+
 .modal-content {
   margin-top: 19%;
   margin-left: 87%;
   margin-right: -87%;
 }
- 
-@media (max-width:720px) { 
+
+@media (max-width:720px) {
   .ul-nav {
     display: block;
   }
-
   .header-tab>li {
     display: none;
   }
-
   span.hiden {
     display: block;
   }
-
   .form-inline .form-control {
     width: 250px;
   }
-
   .icon-header {
     display: none;
   }
-
   .red {
     background-color: red;
   }
-
   .modal-content {
     margin-left: 0;
     margin-right: 0;
