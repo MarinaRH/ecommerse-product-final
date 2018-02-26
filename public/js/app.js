@@ -1,5 +1,16 @@
 $('.carousel').carousel();
-// $('#myModal').modal(options);
+
+// configuración inicial del carrito 
+paypal.minicart.render({
+  target: '_blank',
+  strings:{
+    button:'Pagar'
+   ,buttonAlt: "Total"
+   ,subtotal: 'Total:'
+   ,empty: 'No hay productos en el carrito'
+  }
+});
+
 
 var boxTecnologia = document.getElementById('box-tecnologia'),
   boxMaquillaje = document.getElementById('box-maquillaje'),
@@ -11,7 +22,6 @@ var boxTecnologia = document.getElementById('box-tecnologia'),
   boxDeporte = document.getElementById('box-deportes'),
   boxSalud = document.getElementById('box-salud'),
   inputSearch = document.getElementById('search');
-// main = document.getElementById('main');
 let parameter;
 
 getFetch();
@@ -19,11 +29,11 @@ getFetch();
 function getFetch() {
   for (let i = 1; i < 60; i++) {
 
-    inputSearch.addEventListener('keydown', function () {
+    inputSearch.addEventListener('keyup', function () {
       let search = inputSearch.value;
       var container = document.getElementById('section');
       container.innerHTML = '';
-      const url = `https://api.mercadolibre.com/sites/MPE/search?condition=new&q=${search}`;
+      const url = `https://api.mercadolibre.com/sites/MPA/search?condition=new&q=${search}`;
       fetch(url)
       .then((resp) => resp.json())
       .then(function (data) {
@@ -38,24 +48,23 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
-        container.innerHTML += characters;
+          container.innerHTML += characters;
 
-        $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
+          $('.row').on('click', '#buy', function () {
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+            paypal.minicart.cart.add({
+              business: 'laurajimenezh16@hotmail.com',
+              item_name: $(this).data('title'),
+              amount: $(this).data('price'),
+              currency_code: 'USD',
+            }) 
+  
+          })
         })
-      })
       .catch(function (error) {
         console.log(JSON.stringify(`Error ${error}`));
       });
@@ -83,22 +92,19 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
+        $('.row').on('click', '#buy', function(event) {
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com',
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'PEN',
 
-        $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
-
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+          })  
+          
         })
       })
       .catch(function (error) {
@@ -124,22 +130,20 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com',
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+          }) 
+
         })
       })
       .catch(function (error) {
@@ -165,22 +169,20 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com', 
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
+          }) 
         })
       })
       .catch(function (error) {
@@ -206,22 +208,21 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com', 
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
+
+          }) 
         })
       })
       .catch(function (error) {
@@ -247,22 +248,21 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com',
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
+
+          }) 
         })
       })
       .catch(function (error) {
@@ -277,6 +277,7 @@ function getFetch() {
       fetch(url)
       .then((resp) => resp.json())
       .then(function (data) {
+        console.log(data.results[i])
         const characters =
           `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
@@ -287,22 +288,21 @@ function getFetch() {
               <h5 id="price">S/${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com', // Cuenta paypal para recibir el dinero
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
+
+          }) 
         })
       })
       .catch(function (error) {
@@ -328,22 +328,21 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com',
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
+
+          }) 
         })
       })
       .catch(function (error) {
@@ -369,22 +368,21 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com', // Cuenta paypal para recibir el dinero
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
+
+          }) 
         })
       })
       .catch(function (error) {
@@ -410,22 +408,21 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-          let el = $(this);
-          event.preventDefault();
-          var cant=document.getElementById('cantidad').value;
-          total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
-        })
 
-        $('.modal-body').on('click', '#delete', function () {
-          $(event.target.parentElement.parentElement.parentElement).remove();
+
+          paypal.minicart.cart.add({
+            business: 'laurajimenezh16@hotmail.com',
+            item_name: $(this).data('title'),
+            amount: $(this).data('price'),
+            currency_code: 'USD',
+
+          }) 
         })
       })
       .catch(function (error) {
