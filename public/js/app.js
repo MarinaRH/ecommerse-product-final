@@ -1,5 +1,4 @@
 $('.carousel').carousel();
-
 // configuración inicial del carrito 
 paypal.minicart.render({
   target: '_blank',
@@ -11,17 +10,16 @@ paypal.minicart.render({
   }
 });
 
-
 var boxTecnologia = document.getElementById('box-tecnologia'),
-  boxMaquillaje = document.getElementById('box-maquillaje'),
-  boxModa = document.getElementById('box-moda'),
-  boxJoyas = document.getElementById('box-joyas'),
-  boxBebes = document.getElementById('box-bebes'),
-  boxVehiculo = document.getElementById('box-vehiculos'),
-  boxHogar = document.getElementById('box-hogar'),
-  boxDeporte = document.getElementById('box-deportes'),
-  boxSalud = document.getElementById('box-salud'),
-  inputSearch = document.getElementById('search');
+boxMaquillaje = document.getElementById('box-maquillaje'),
+boxModa = document.getElementById('box-moda'),
+boxJoyas = document.getElementById('box-joyas'),
+boxBebes = document.getElementById('box-bebes'),
+boxVehiculo = document.getElementById('box-vehiculos'),
+boxHogar = document.getElementById('box-hogar'),
+boxDeporte = document.getElementById('box-deportes'),
+boxSalud = document.getElementById('box-salud'),
+inputSearch = document.getElementById('search');
 let parameter;
 
 getFetch();
@@ -134,7 +132,6 @@ function getFetch() {
             </div>
           </div><hr>`;
         container.innerHTML += characters;
-
         $('.row').on('click', '#buy', function () {
           paypal.minicart.cart.add({
             business: 'laurajimenezh16@hotmail.com',
@@ -143,7 +140,6 @@ function getFetch() {
             currency_code: 'PEN',
 
           }) 
-
         })
       })
       .catch(function (error) {
@@ -175,8 +171,6 @@ function getFetch() {
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-
-
           paypal.minicart.cart.add({
             business: 'laurajimenezh16@hotmail.com', 
             item_name: $(this).data('title'),
@@ -214,14 +208,11 @@ function getFetch() {
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-
-
           paypal.minicart.cart.add({
             business: 'laurajimenezh16@hotmail.com', 
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
             currency_code: 'PEN',
-
           }) 
         })
       })
@@ -254,8 +245,6 @@ function getFetch() {
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-
-
           paypal.minicart.cart.add({
             business: 'laurajimenezh16@hotmail.com',
             item_name: $(this).data('title'),
@@ -334,8 +323,6 @@ function getFetch() {
         container.innerHTML += characters;
 
         $('.row').on('click', '#buy', function () {
-
-
           paypal.minicart.cart.add({
             business: 'laurajimenezh16@hotmail.com',
             item_name: $(this).data('title'),
@@ -372,10 +359,7 @@ function getFetch() {
             </div>
           </div><hr>`;
         container.innerHTML += characters;
-
         $('.row').on('click', '#buy', function () {
-
-
           paypal.minicart.cart.add({
             business: 'laurajimenezh16@hotmail.com', // Cuenta paypal para recibir el dinero
             item_name: $(this).data('title'),
@@ -412,10 +396,7 @@ function getFetch() {
             </div>
           </div><hr>`;
         container.innerHTML += characters;
-
         $('.row').on('click', '#buy', function () {
-
-
           paypal.minicart.cart.add({
             business: 'laurajimenezh16@hotmail.com',
             item_name: $(this).data('title'),
@@ -429,7 +410,5 @@ function getFetch() {
         console.log(JSON.stringify(`Error ${error}`));
       });
     })
-
-    
   }
 }
