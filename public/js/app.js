@@ -60,7 +60,7 @@ function getFetch() {
               business: 'laurajimenezh16@hotmail.com',
               item_name: $(this).data('title'),
               amount: $(this).data('price'),
-              currency_code: 'USD',
+              currency_code: 'PEN',
             }) 
   
           })
@@ -140,7 +140,7 @@ function getFetch() {
             business: 'laurajimenezh16@hotmail.com',
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
 
           }) 
 
@@ -181,7 +181,7 @@ function getFetch() {
             business: 'laurajimenezh16@hotmail.com', 
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
           }) 
         })
       })
@@ -220,7 +220,7 @@ function getFetch() {
             business: 'laurajimenezh16@hotmail.com', 
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
 
           }) 
         })
@@ -260,7 +260,7 @@ function getFetch() {
             business: 'laurajimenezh16@hotmail.com',
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
 
           }) 
         })
@@ -297,10 +297,10 @@ function getFetch() {
 
 
           paypal.minicart.cart.add({
-            business: 'laurajimenezh16@hotmail.com', // Cuenta paypal para recibir el dinero
+            business: 'laurajimenezh16@hotmail.com', 
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
 
           }) 
         })
@@ -340,7 +340,7 @@ function getFetch() {
             business: 'laurajimenezh16@hotmail.com',
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
 
           }) 
         })
@@ -380,7 +380,7 @@ function getFetch() {
             business: 'laurajimenezh16@hotmail.com', // Cuenta paypal para recibir el dinero
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
 
           }) 
         })
@@ -420,7 +420,7 @@ function getFetch() {
             business: 'laurajimenezh16@hotmail.com',
             item_name: $(this).data('title'),
             amount: $(this).data('price'),
-            currency_code: 'USD',
+            currency_code: 'PEN',
 
           }) 
         })

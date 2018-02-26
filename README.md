@@ -19,13 +19,13 @@ Creamos una app e-commerce, bajo los principios de SPA (Single page aplication),
 
 - Mediante esta Api obtenemos datos como: Precio, descripcion, Precios x cuotas,cuantos productos ya fueron vendidos,   cantidad de productos a comprar y un boton que indica Comprar.
 
-- Al momento de seleccionar el producto,cada uno de ellos de se ira agregando en un **carrito**.
+- Al momento de seleccionar el producto,cada uno de ellos de se ira agregando en un **carrito** de la api **Paypal**.
 
 - A traves del modal podras visualizar los productos que selecciones con su **precio*cantidad** ,que a su vez se iran   sumando a los otros productos.
 
-- Cuentas con opcion de **eliminar** productos que seleccionaste en el carrito.
+- Cuentas con opcion de **eliminar** productos que seleccionaste.
 
-- Teniendo los productos seleccionados cuentas con 2 opciones de pago: **Tarjeta de credito** o con **Paypal**.
+- Con los productos seleccionados y la suma total de tus productos,tienes la opcion de **pagar** que te direcciona a    la cuenta de **Paypal** para que realices el pago.
 
 
 
@@ -35,7 +35,8 @@ Creamos una app e-commerce, bajo los principios de SPA (Single page aplication),
 * Node,
 * Express (dependencia),
 * gitignore,
-* Api Mercad0libre
+* Api Mercadolibre,
+* Api Paypal.
 
 ## DEMO
 

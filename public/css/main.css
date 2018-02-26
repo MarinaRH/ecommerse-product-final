@@ -164,6 +164,12 @@ ul.nav.nav-tabs {
   font-size: 18px;
 }
 
+/* paypal */
+
+#PPMiniCart form {
+  margin-left: 273px !important;
+}
+
 @media (max-width:720px) {
   .ul-nav {
     display: block;
