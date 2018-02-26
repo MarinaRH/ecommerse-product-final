@@ -3,7 +3,7 @@
 * **Track:** _Especialización Front-end_
 * **Curso:** _CONSTRUYE UNA SINGLE PAGE APP (SPA) MULTI-USUARIO CONSUMIENDO DATA REMOTA_
 * **Unidad:** _Producto final_
-* [PRUEBA E-commerce]()
+* [PRUEBA E-commerce](https://marinarh.github.io/ecommerse-product-final/public/)
 
 ***
 
@@ -39,7 +39,8 @@ Creamos una app e-commerce, bajo los principios de SPA (Single page aplication),
 
 ## DEMO
 
-![login](public/assets/images/)
+![vista1](public/assets/images/vista1.png)
+![vista2](public/assets/images/vista2.png)
 
 ## Integrantes(GitHub)
 
