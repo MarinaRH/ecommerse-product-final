@@ -1,5 +1,6 @@
 body {
   color: black;
+  font-family: 'Roboto Slab', serif;
 }
 
 .center {
@@ -36,7 +37,7 @@ span.user {
 }
 
 .bg-inverse {
-  background-color: #2b2c2c !important;
+  background-color: #2d4141 !important;
   padding: 6px 40px;
 }
 
@@ -122,8 +123,8 @@ div.div-card:hover span.parrafo {
 
 .modal-content {
   margin-top: 19%;
-  margin-left: 87%;
-  margin-right: -87%;
+  margin-left: 80%;
+  margin-right: -80%;
 }
 
 .img-modal{
@@ -137,6 +138,27 @@ div.div-card:hover span.parrafo {
 #cantidad {
   width: 7%;
   border-radius: 4px;
+}
+
+.img-paypal {
+  width: 114px;
+}
+
+.img-card {
+  width:30px;
+}
+
+.delete {
+  background-color: transparent;
+  border: rgb(19, 18, 18) 1px solid;
+  position: relative;
+  left: 280px;
+  height: 30px;
+  padding: 5px;
+}
+
+#delete {
+  font-size: 18px;
 }
 
 @media (max-width:720px) {
@@ -161,5 +183,13 @@ div.div-card:hover span.parrafo {
   .modal-content {
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .img-paypal {
+    width: 54px;
+  }
+
+  .img-card {
+    width:12px;
   }
 }

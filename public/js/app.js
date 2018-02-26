@@ -25,29 +25,40 @@ function getFetch() {
       container.innerHTML = '';
       const url = `https://api.mercadolibre.com/sites/MPE/search?condition=new&q=${search}`;
       fetch(url)
-        .then((resp) => resp.json())
-        .then(function (data) {
-          console.log(data.results[i]);
-          // if(search != ''){
-          const characters =
-            `<div class="row">
+      .then((resp) => resp.json())
+      .then(function (data) {
+        const characters =
+          `<div class="row">
             <div class="col-4 col-md-3 col offset-md-2">
-            <img id="imgg" class="img-characters" data-toggle="modal" data-target="#MyModal" src="${data.results[i].thumbnail}" alt="${data.name}">
+            <img id="imgg" class="img-characters" src="${data.results[i].thumbnail}" alt="${data.name}">
             </div>
             <div class="col-8 col-md-6">
-              <h6>${data.results[i].title}</h6>
-              <h5>S/.${data.results[i].price}</h5>
+              <h6 id="title">${data.results[i].title}</h6>
+              <h5 id="price">S/${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
+              <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button type="button" class="btn btn-warning">Comprar</button>
+              <input type="number" id="cantidad">
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
             </div>
           </div><hr>`;
-          container.innerHTML += characters;
+        container.innerHTML += characters;
+
+        $('.row').on('click', '#buy', function () {
+          let el = $(this);
+          event.preventDefault();
+          var cant=document.getElementById('cantidad').value;
+          total= (el.data('price')) * cant;
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
         })
 
-        .catch(function (error) {
-          console.log(JSON.stringify(`Error ${error}`));
-        });
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
+        })
+      })
+      .catch(function (error) {
+        console.log(JSON.stringify(`Error ${error}`));
+      });
     })
 
     document.getElementById('hom').addEventListener('click', function () {
@@ -83,7 +94,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -120,7 +135,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -157,7 +176,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -194,7 +217,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -231,7 +258,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -255,7 +286,6 @@ function getFetch() {
               <h6 id="title">${data.results[i].title}</h6>
               <h5 id="price">S/${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
-              <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
               <input type="number" id="cantidad">
               <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
@@ -268,7 +298,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -305,7 +339,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -342,7 +380,11 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
@@ -379,14 +421,18 @@ function getFetch() {
           event.preventDefault();
           var cant=document.getElementById('cantidad').value;
           total= (el.data('price')) * cant;
-          $('.modal-body').append('<div class="row"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-9 text-modal"><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div></div><hr>');          
+          $('.modal-body').append('<div class="row" id="producto"><div class="col-md-3"><img class="img-modal" src=' + el.data('img') + '></div><div class="col-md-8 text-modal"><button class="delete"><i id="delete" class="fa fa-trash"></i></button><p>' + el.data('title') + '</p><h6 id="modal-price">' + ' S/ ' + total + '</h6></div><br></div>');          
+        })
+
+        $('.modal-body').on('click', '#delete', function () {
+          $(event.target.parentElement.parentElement.parentElement).remove();
         })
       })
       .catch(function (error) {
         console.log(JSON.stringify(`Error ${error}`));
       });
     })
+
+    
   }
-
-
 }
