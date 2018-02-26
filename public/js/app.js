@@ -4,7 +4,6 @@ $('.carousel').carousel();
 // configuración inicial del carrito 
 paypal.minicart.render({
   target: '_blank',
-  viewModel: 
   strings:{
     button:'Pagar'
    ,buttonAlt: "Total"
