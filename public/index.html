@@ -21,10 +21,6 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
         </ul>
-        <span class="rigth user icon-header"><img src="assets/images/user.png" alt=""></span>
-        <button class="mod" type="button" data-toggle="modal" data-target="#myModal">
-          <span class="rigth icon-header"><img src="assets/images/cart.png" alt=""></span>
-        </button>
         <ul class="nav nav-tabs list-group ul-nav hiden" role="tablist">
           <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#home" role="tab">Home</a>
@@ -91,14 +87,6 @@
       <li class="nav-item" id="box-salud">
         <a class="nav-link" data-toggle="tab" href="#salud" role="tab">Salud</a>
       </li>
-      <form class="form-inline mt-2 mt-md-0">
-        <input id="search" class="form-control mr-sm-2" type="text" placeholder="Search">
-        <span class="rigth user hiden"><img src="assets/images/user.png" alt=""></span>
-        <button type="button" class="moda" id="carrito-show" data-toggle="modal" data-target="#myModal">
-          <span class="rigth hiden"><img src="assets/images/cart.png" alt=""></span>
-
-        </button>
-      </form>
     </ul>
   </header><br>
   
@@ -107,7 +95,6 @@
     <div class="tab-content">
       <div class="tab-pane active" id="home" role="tabpanel">
         <!-- caroudsel -->
-        <div id="section">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -138,7 +125,10 @@
               <span class="sr-only">Next</span>
             </a>
           </div><br>
+          <input id="search" class="form-control mr-sm-2" type="text" placeholder="Busca el producto que quieres comprar...">
+
           <!-- fin carousel -->
+          <div id="section">
           <h3 class="center">Ofertas de la Semana</h3>
           <div class="ofertas">
             <div class="container">
