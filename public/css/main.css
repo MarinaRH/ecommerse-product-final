@@ -126,6 +126,19 @@ div.div-card:hover span.parrafo {
   margin-right: -87%;
 }
 
+.img-modal{
+  width: 70%;
+}
+
+.text-modal {
+  font-size: 12px;
+}
+
+#cantidad {
+  width: 7%;
+  border-radius: 4px;
+}
+
 @media (max-width:720px) {
   .ul-nav {
     display: block;
