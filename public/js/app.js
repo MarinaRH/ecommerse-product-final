@@ -33,7 +33,7 @@ function getFetch() {
       let search = inputSearch.value;
       var container = document.getElementById('section');
       container.innerHTML = '';
-      const url = `https://api.mercadolibre.com/sites/MPA/search?condition=new&q=${search}`;
+      const url = `https://api.mercadolibre.com/sites/MPE/search?condition=new&q=${search}`;
       fetch(url)
       .then((resp) => resp.json())
       .then(function (data) {
@@ -49,7 +49,7 @@ function getFetch() {
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
 
-              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
           container.innerHTML += characters;
@@ -92,7 +92,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -130,7 +130,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -169,7 +169,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -208,7 +208,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -248,7 +248,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -288,7 +288,7 @@ function getFetch() {
               <h5 id="price">S/${data.results[i].price}</h5>
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -328,7 +328,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -368,7 +368,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
@@ -408,7 +408,7 @@ function getFetch() {
               <span><i class="fa fa-truck"></i> Envio a todo el País<span>
               <p><i class="fa fa-credit-card"></i> 12x S/${data.results[i].installments.amount} </p>
               <p> ${data.results[i].sold_quantity}  vendidos-Lima</p>
-              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Comprar</button>
+              <button id="buy" type="button" class="btn btn-warning" data-img="${data.results[i].thumbnail}"  data-title="${data.results[i].title}" data-price="${data.results[i].price}">Agregar a carrito</button>
             </div>
           </div><hr>`;
         container.innerHTML += characters;
